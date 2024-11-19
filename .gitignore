@@ -1,0 +1,46 @@
+node_modules/
+
+dist/
+build/
+coverage/
+
+Thumbs.db
+
+#cypress report
+cypress/videos/
+cypress/screenshots/
+cypress/results/
+cypress/json/
+cypress/reports/
+
+# IDE ve editör ayarları
+.vscode/
+.idea/
+
+# Vim editör files
+*.swp
+      
+# IntelliJ IDEA Files
+*.iml  
+
+# Log Files
+*.log
+
+# Geçici dosyalar
+*.tmp
+
+# Environment variables
+.env
+.env.local
+.env.test
+.env.*.local
+.env.production
+
+#special keys
+*.pem
+*.key
+*.crt
+
+# Other optional files/directories to ignore
+cypress.json
+package-lock.json
