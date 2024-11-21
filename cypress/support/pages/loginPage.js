@@ -6,8 +6,8 @@ class LoginPage {
     this.loginButton = '//*[@id="customer_login"]/div/div[3]/div[4]/button'
     this.alert = '[x-ref="localizationApplyButton"]'
     this.cookies = '[aria-label="Ablehnen"]'
-    this.meinKontoButton = '//*[@id="site-header"]/div[1]/div/div[2]/button/span[2]'
-    this.logoutButton = 'span.group-hover\\:underline'
+    this.meinKontoButton = 'span.text-kblack.text-base.m\\:hidden.font-medium'
+    this.logoutButton = '[href="/account/logout"]'
   }
 
   visit() {
@@ -38,11 +38,11 @@ class LoginPage {
   }
 
   clickMeinKontoButton() {
-    cy.get(this.meinKontoButton).click();
+    cy.get(this.meinKontoButton).first().should('be.visible').click();
   }
 
   clickLogoutButton() {
-    cy.get(this.logoutButton).click();
+    cy.get(this.logoutButton).first().should('be.visible').click();
 
   }
 
@@ -63,9 +63,9 @@ class LoginPage {
   }
 
   verifyLogoutTextIsVisible() {
-    cy.contains('span', 'Login').should('be.visible');
+    cy.get(this.meinKontoButton).first().should('be.visible').click();
+    cy.get('a[href="/account/login"]').should('be.visible');
   }
-
 
   login() {
     this.writeEmail(Cypress.env("email"));
@@ -73,7 +73,6 @@ class LoginPage {
     this.clickLoginButton();
   }
 
-  
 }
 
 export const loginPage = new LoginPage();
